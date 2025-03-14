@@ -49,8 +49,8 @@ class simplefs {
 int main(int argc, char **argv) {
   const int period_in_ns = 20000000;
   const int servo_center = 1500000;
-  const int servo_90P = 500000;
-  const int servo_90N = 2500000;
+  const int servo_90P = 1'100'000; // 500000;
+  const int servo_90N = 2'000'000; //2500000;
   const int cycle_count = 4;
   const int servo_count = 1;
   const int cycles[cycle_count] = {servo_90P, servo_center, servo_90N,
@@ -74,7 +74,7 @@ int main(int argc, char **argv) {
   }
 
   // ok let's do something
-  useconds_t delay = 50'000;
+  useconds_t delay = 20'000;
   while (true) {
     // All together do something
     for (int value = servo_90P; value < servo_90N; value = value + (servo_90N - servo_90P) / 100) {
